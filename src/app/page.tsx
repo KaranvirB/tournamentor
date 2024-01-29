@@ -108,6 +108,9 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <div>
+        <a href="/dashboard">link</a>
+      </div>
     </main>
   );
 }
