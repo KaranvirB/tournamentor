@@ -73,8 +73,8 @@ export default function Login() {
                     </form>
                     <div className="flex flex-col w-full justify-center space-y-3">    
                         {signUp === true? 
-                            <p className="mx-auto">Already have an account? <Link href='' replace scroll={false} onClick={()=> {signUpAction(!signUp);}} className="text-purple-400">Log in</Link></p>:
-                            <p className="mx-auto">Don't have an account? <Link href='' replace scroll={false} onClick={()=> {signUpAction(!signUp);}} className="text-purple-400">Sign Up</Link></p>
+                            <p className="mx-auto">Already have an account? <Link href="" replace scroll={false} onClick={()=> {signUpAction(!signUp);}} className="text-purple-400">Log in</Link></p>:
+                            <p className="mx-auto">Don't have an account? <Link href="" replace scroll={false} onClick={()=> {signUpAction(!signUp);}} className="text-purple-400">Sign Up</Link></p>
                         }
                         <p className="mx-auto">Forgot password? <Link href="" className="text-purple-400">Click here</Link></p>
                     </div>
