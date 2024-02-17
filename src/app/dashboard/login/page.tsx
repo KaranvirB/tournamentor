@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function Login() {
 
-    const [signUp, signUpAction] = useState(true);
+    const [signUp, signUpAction] = useState(true);  
 
     return (
         <main className="box-border p-10 space-y-20 bg-gradient-to-b from-black via-purple-950/30 via-40% to-black to-90%">

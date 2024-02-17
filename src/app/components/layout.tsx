@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Link from "next/link";
 
@@ -10,7 +9,7 @@ import Link from "next/link";
 
 export default function Layout({children,}: Readonly<{children:ReactNode;}>) {
     return (
-        <main className="box-border p-10 space-y-20 bg-gradient-to-b from-black via-purple-950/30 via-40% to-black to-90%">
+        <main className="flex flex-col h-screen p-10 space-y-10 justify-between bg-gradient-to-b from-black via-purple-950/40 via-40% to-black to-90%">
 
             {/* HEADER */}
             
@@ -25,17 +24,20 @@ export default function Layout({children,}: Readonly<{children:ReactNode;}>) {
             </div>
 
             {/* This is where the main contents of the page go */}
-
-            {children}
-
+            
+            <div className="flex-box">
+                {children}
+            </div>
+            
             {/* FOOTER (WIP) */}
 
-            <div className="flex flex-row bg-gradient-to-r from-blue-950/75 to-black to-80% border-r-4 border-purple-400 p-6 rounded-l-full justify-between">
+            <div className="flex flex-box bg-gradient-to-r from-blue-950/75 to-black to-80% border-r-4 border-purple-400 p-6 rounded-l-full">
                 <div className="flex flex-col text-lg text-purple-300 mx-auto">
                     <h1>Contact: </h1>
                     <h1>About </h1>
                 </div>
             </div>
+
         </main>
     );
 } 
