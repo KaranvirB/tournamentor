@@ -1,12 +1,10 @@
 'use client'
 import { configureStore } from "@reduxjs/toolkit";
-// import loginButtonReducer from "./features/buttons/loginButton";
-// import loginSignUpReducer from "./features/buttons/loginSignup";
+import loginPageReducer from "@/app/features/buttons/loginPageSlice";
 
 export const store = configureStore({
     reducer: {
-        // loginButton: loginButtonReducer,
-        // loginSignUpButton: loginSignUpReducer, 
+        loginPageButton: loginPageReducer, 
     },
 })
 
