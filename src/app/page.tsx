@@ -108,7 +108,7 @@ export default function Home() {
           </p>
         </a>
       </div>
-      <div>
+      <div className="p-20 z-1000">
         <a href="/dashboard">link</a>
       </div>
     </main>

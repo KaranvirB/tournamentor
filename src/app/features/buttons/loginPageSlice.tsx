@@ -1,12 +1,11 @@
 'use client'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../store'
 
 interface PageState {
     value: boolean
 }
 
-export const initialState: PageState = {
+const initialState: PageState = {
     value: false
 }
 
