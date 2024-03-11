@@ -2,7 +2,7 @@ import prisma from "@/app/lib/db";
 import { NextResponse } from "next/server";
 import { hash } from "bcrypt"
 
-
+export const dynamic = 'force-dynamic';
 export async function POST(req: Request) {
     if (req.method === 'POST') {
 
