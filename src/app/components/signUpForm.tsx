@@ -19,35 +19,37 @@ const userSchema = z
       .string()
       .min(1, 'Password is required')
       .min(8, 'Password must have more than 8 characters'),
-  });
+});
 
-  export default function SignUpForm() {
+export default function SignUpForm() {
 
     const [getUser, setUser] = useState("");
     const [getEmail, setEmail] = useState("");
     const [getPass, setPass] = useState("");
 
-    const formData = {
-        username: getUser,
-        email: getEmail,
-        password: getPass
-    }
+    // const formData = {
+    //     username: getUser,
+    //     email: getEmail,
+    //     password: getPass
+    // }
 
-    const onSubmit = async () => {
+    async function onSubmit (event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
 
+        const formData = new FormData(event.currentTarget)
         const response = await fetch('/api/user', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', 
-            },
-            body: JSON.stringify({formData})
+            // headers: {
+            //     'Content-Type': 'application/json', 
+            // },
+            body: formData
 
         })
         
     }
     
     return (
-        <form onSubmit={() => (onSubmit)} className="space-y-10 w-full px-10">
+        <form onSubmit={() => onSubmit} className="space-y-10 w-full px-10">
             <div className="flex bg-black rounded-full justify-between border-2 border-purple-300">
                 <div className="flex justify-center text-xl text-purple-300 bg-purple-300 h-[3rem] w-[3rem] py-2 rounded-l-full">
                     <Image 
@@ -61,8 +63,8 @@ const userSchema = z
                     type="text" 
                     placeholder="Username" 
                     name="username"
-                    value={getUser}
-                    onChange={(e) => setUser(e.target.value)}
+                    // value={getUser}
+                    // onChange={(e) => setUser(e.target.value)}
                     className="text-xl text-purple-300 bg-black rounded-r-full w-full h-[3rem] pl-2">
                 </input>
             </div>
@@ -79,8 +81,8 @@ const userSchema = z
                         type="email"
                         placeholder="Email" 
                         name="email"
-                        value={getEmail}
-                        onChange={(e) => setEmail(e.target.value)}
+                        // value={getEmail}
+                        // onChange={(e) => setEmail(e.target.value)}
                         className="text-xl text-purple-300 bg-black rounded-r-full w-full h-[3rem] pl-2">
                     </input>
                 </div>
@@ -97,8 +99,8 @@ const userSchema = z
                     type="password" 
                     placeholder="Password"
                     name="password" 
-                    value={getPass}
-                    onChange={(e) => setPass(e.target.value)}
+                    // value={getPass}
+                    // onChange={(e) => setPass(e.target.value)}
                     className="text-xl text-purple-300 bg-black rounded-r-full w-full h-[3rem] pl-2">
                 </input>
             </div>
@@ -106,10 +108,10 @@ const userSchema = z
                 <input 
                     type="submit" 
                     value="Sign Up ->"
-                    onClick={() => {
-                        // formData.username = getUser
-                        console.log(formData)
-                    }}
+                    // onClick={() => {
+                    //     // formData.username = getUser
+                    //     // console.log(formData)
+                    // }}
                     className="text-2xl text-purple-300 rounded-full border border-purple-300 p-4 mx-auto hover:scale-110 duration-100 hover:bg-purple-500/25 duration-100 hover:cursor-pointer"
                 />
             </div>
