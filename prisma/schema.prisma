@@ -8,20 +8,18 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model user {
-  user_id   Int    @id @default(autoincrement())
-  username  String @unique
-  email     String @unique
+  user_id   Int       @id @default(autoincrement())
+  username  String    @unique
+  email     String    @unique
   password  String 
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model tournaments {
-  tournament_id     Int    @id @default(autoincrement())
-  name              String @db.VarChar(30)
+  tournament_id     Int       @id @default(autoincrement())
+  name              String    @db.VarChar(30)
   contestant_number Int    
   contestants       String[]  
 }
