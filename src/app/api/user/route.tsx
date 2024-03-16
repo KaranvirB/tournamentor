@@ -1,8 +1,7 @@
-import prisma from "../../lib/prisma";
+import prisma from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
 import { hash } from "bcrypt"
 
-export const dynamic = 'force-dynamic';
 export async function POST(req: Request) {
     if (req.method === 'POST') {
 
@@ -11,7 +10,7 @@ export async function POST(req: Request) {
         const email = formData.get('email') as string
         const password = formData.get('password') as string
 
-        // const { email, username, password } = JSON.parse(body);
+        // const { email, username, password } = body;
 
         // check if email already exists
         const existingUserByEmail = await prisma.user.findUnique({

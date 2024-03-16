@@ -14,12 +14,11 @@ export default function SignUpForm() {
         const response = await fetch('/api/user', {
             method: 'POST',
             body: formData
-
         })
     }
     
     return (
-        <form onSubmit={() => onSubmit} className="space-y-10 w-full px-10">
+        <form onSubmit={onSubmit} className="space-y-10 w-full px-10">
             <div className="flex bg-black rounded-full justify-between border-2 border-purple-300">
                 <div className="flex justify-center text-xl text-purple-300 bg-purple-300 h-[3rem] w-[3rem] py-2 rounded-l-full">
                     <Image 
