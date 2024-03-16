@@ -16,7 +16,6 @@ export default function SignUpForm() {
             body: formData
 
         })
-        
     }
     
     return (
