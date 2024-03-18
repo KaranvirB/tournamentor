@@ -4,8 +4,15 @@ import userImg from "../../../../public/img/1144760.png"
 import emailImg from "../../../../public/img/327339.png"
 import passImg from "../../../../public/img/3099886.png"
 import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignUpForm() {
+
+    const router = useRouter();
+    const regFail = () => toast.error("The email or username is already in use")
+    const regSuccess = () => toast.success("Account successfully registered!")
 
     async function onSubmit (event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -15,6 +22,14 @@ export default function SignUpForm() {
             method: 'POST',
             body: formData
         })
+
+        if (response.ok) {
+            regSuccess()
+            router.push('/pages/signup/login')
+        } else {
+            console.error('Registration failed')
+            regFail()
+        }
     }
     
     return (
@@ -35,29 +50,29 @@ export default function SignUpForm() {
                     className="text-xl text-purple-300 bg-black rounded-r-full w-full h-[3rem] pl-2">
                 </input>
             </div>
-                <div className="flex bg-black rounded-full justify-between border-2 border-purple-300">
-                    <div className="flex justify-center text-xl text-purple-300 bg-purple-300 h-[3rem] w-[3rem] py-2 rounded-l-full">
-                        <Image 
-                            src={emailImg}
-                            width={30} 
-                            height={30} 
-                            alt="Username"
-                        />
-                    </div>
-                    <input 
-                        type="email"
-                        placeholder="Email" 
-                        name="email"
-                        className="text-xl text-purple-300 bg-black rounded-r-full w-full h-[3rem] pl-2">
-                    </input>
+            <div className="flex bg-black rounded-full justify-between border-2 border-purple-300">
+                <div className="flex justify-center text-xl text-purple-300 bg-purple-300 h-[3rem] w-[3rem] py-2 rounded-l-full">
+                    <Image 
+                        src={emailImg}
+                        width={30} 
+                        height={30} 
+                        alt="Email"
+                    />
                 </div>
+                <input 
+                    type="email"
+                    placeholder="Email" 
+                    name="email"
+                    className="text-xl text-purple-300 bg-black rounded-r-full w-full h-[3rem] pl-2">
+                </input>
+            </div>
             <div className="flex bg-black rounded-full justify-between border-2 border-purple-300">
                 <div className="flex justify-center text-xl text-purple-300 bg-purple-300 h-[3rem] w-[3rem] py-2 rounded-l-full">
                     <Image 
                         src={passImg}
                         width={30} 
                         height={30} 
-                        alt="Username"
+                        alt="Password"
                     />
                 </div>
                 <input 

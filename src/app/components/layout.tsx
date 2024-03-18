@@ -4,6 +4,8 @@ import Link from "next/link";
 import LoginPageButton from "./buttons/loginPageButton";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { goLogin } from "../redux/slices/loginPageSlice";
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 /* 
 *  This is the layout of most pages on the site 
@@ -25,7 +27,7 @@ export default function Layout({children,}: Readonly<{children:ReactNode;}>) {
                 <Link href="/" className="text-5xl tracking-widest bg-gradient-to-r from-blue-800 to-purple-500 text-transparent bg-clip-text my-auto animate-in fade-in hover:animate-pulse animate-infinite">TournaMentor</Link>
                 
                 {loginPage === false?
-                    <LoginPageButton text="Login/Sign up" onClick={() => dispatch(goLogin())} href="/pages/login" />:
+                    <LoginPageButton text="Login/Sign up" onClick={() => dispatch(goLogin())} href="/pages/signup" />:
                     <LoginPageButton text="Back to Home" onClick={() => dispatch(goLogin())} href="/" />
                 }
                 
@@ -38,7 +40,7 @@ export default function Layout({children,}: Readonly<{children:ReactNode;}>) {
             </div>
             
             {/* FOOTER (WIP) */}
-
+            <ToastContainer/>
             <div className="flex flex-box bg-gradient-to-r from-blue-950/75 to-black to-80% border-r-4 border-purple-400 p-6 rounded-l-full">
                 <div className="flex flex-col text-lg text-purple-300 mx-auto">
                     <h1>Contact: </h1>

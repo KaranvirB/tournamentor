@@ -34,10 +34,7 @@ export default function Dashboard() {
                 </div>
                 <div className="flex p-8 mx-auto">
                     <Link href="/pages/tournaments" className="text-2xl text-purple-400 h-full rounded-full border border-purple-400 p-4 my-auto hover:scale-110 duration-100 hover:bg-purple-500/25 duration-100">
-                        Get Started{" "} 
-                        <span className="inline-block">
-                            -&gt;
-                        </span>
+                        Get Started -&gt;
                     </Link>
                 </div>
             </div>
