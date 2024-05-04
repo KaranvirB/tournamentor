@@ -16,7 +16,6 @@ export default function LogInForm() {
     async function onSubmit (event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
-        // const session = await getServerSession(authOptions)
         const formData = new FormData(event.currentTarget)
 
         const values = {
