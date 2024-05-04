@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import Layout from "@/app/components/layout";
 import LogInForm from "@/app/components/forms/loginForm";
-import { ToastContainer } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
 

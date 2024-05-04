@@ -14,9 +14,12 @@ export const loginPageSlice = createSlice({
     reducers: {
         goLogin: (state) => {
             state.value = !state.value
+        },
+        goHome: (state) => {
+            state.value = false
         }
     },
 })
 
-export const { goLogin } = loginPageSlice.actions
+export const { goLogin, goHome } = loginPageSlice.actions
 export default loginPageSlice.reducer

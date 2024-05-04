@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "./components/layout";
 
-export default function Dashboard() {
+export default function Home() {
     return (
         <Layout>
             <div className="flex flex-col bg-gradient-to-b from-blue-950/75 to-black border-b-4 border-purple-400 py-10 rounded-t-[3rem] space-y-10">
@@ -33,7 +33,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="flex p-8 mx-auto">
-                    <Link href="/pages/tournaments" className="text-2xl text-purple-400 h-full rounded-full border border-purple-400 p-4 my-auto hover:scale-110 duration-100 hover:bg-purple-500/25 duration-100">
+                    <Link href="/pages/dashboard" className="text-2xl text-purple-400 h-full rounded-full border border-purple-400 p-4 my-auto hover:scale-110 duration-100 hover:bg-purple-500/25 duration-100">
                         Get Started -&gt;
                     </Link>
                 </div>

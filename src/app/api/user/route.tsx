@@ -1,4 +1,4 @@
-import prisma from "@/app/lib/prisma"
+import db from "@/app/lib/prisma"
 import { NextResponse } from "next/server"
 import { hash } from "bcrypt"
 
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
         const password = formData.get('password') as string
 
         // check if email already exists
-        const existingUserByEmail = await prisma.user.findUnique({
+        const existingUserByEmail = await db.user.findUnique({
             where: { email: email}
         })
 
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
             return NextResponse.json({ user: null, message: "This email is already in use"}, { status: 409 })
         }
 
-        const existingUserByUsername = await prisma.user.findUnique({
+        const existingUserByUsername = await db.user.findUnique({
             where: { username: username }
         })
 
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
         const hashedPassword = await hash(password, 10)
 
-        const newUser = await prisma.user.create({
+        const newUser = await db.user.create({
             data: {
                 username: username, 
                 email: email,
