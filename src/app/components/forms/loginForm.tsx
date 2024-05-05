@@ -25,7 +25,8 @@ export default function LogInForm() {
 
         const signInData = await signIn('credentials', {
             email: values.email,
-            password: values.password
+            password: values.password,
+            redirect: false
         })
 
         if (signInData?.error) {
